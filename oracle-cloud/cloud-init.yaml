@@ -1,0 +1,9 @@
+#cloud-config
+# First boot: Docker and zstd, so images can be streamed in over SSH
+# without a registry:
+#   docker save app:dev | zstd -T0 | ssh ubuntu@<host> 'zstd -d | docker load'
+package_update: true
+packages: [docker.io, zstd]
+runcmd:
+  - systemctl enable --now docker
+  - usermod -aG docker ubuntu

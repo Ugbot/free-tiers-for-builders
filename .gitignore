@@ -1,0 +1,9 @@
+.DS_Store
+*.pass
+*.pem
+*.pgpass
+*.cnf
+*.properties
+*.env
+state.env
+secrets/

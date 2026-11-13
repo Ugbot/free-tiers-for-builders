@@ -1,0 +1,18 @@
+// deploy.sh renders this to wrangler.jsonc (git-ignored) with your values.
+{
+  "name": "<worker>",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "containers": [
+    {
+      "class_name": "LeasedRunner",
+      "image": "registry.cloudflare.com/<account-id>/<image>:<tag>",
+      "instance_type": "<instance-type>",
+      "max_instances": 2
+    }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "RUNNER", "class_name": "LeasedRunner" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["LeasedRunner"] }]
+}

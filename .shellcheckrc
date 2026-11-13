@@ -1,0 +1,4 @@
+source-path=SCRIPTDIR
+external-sources=true
+# Functions are passed by name to ft_step, which shellcheck cannot see.
+disable=SC2329
